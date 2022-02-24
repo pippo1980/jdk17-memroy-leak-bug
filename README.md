@@ -94,7 +94,7 @@ jcmd <pid> VM.native_memory detail.diff
 ```
 4. 通过openjdk源码分析, 这部分是在dump线程堆栈, 所有线程进入safepoint的相关逻辑. 最终在openjdk的issue中发现了这个Bug
 
-5. 触发的原因是CAT Client会每分钟 dump 所有线程的对账并上报, 从而触发jvm memory leak bug
+5. 触发的原因是服务每分钟 dump 所有线程的堆栈并上报监控, 从而触发jvm memory leak bug
 
 问题修复
 
